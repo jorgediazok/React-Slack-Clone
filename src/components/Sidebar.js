@@ -4,6 +4,17 @@ import CreateIcon from '@material-ui/icons/Create';
 import InsertCommentIcon from '@material-ui/icons/InsertComment';
 import SidebarOption from '../components/SidebarOption';
 import '../styles/Sidebar.css';
+import {
+  BookmarkBorder,
+  Drafts,
+  ExpandLess,
+  FileCopy,
+  Inbox,
+  Apps,
+  PeopleAlt,
+  Add,
+  ExpandMore,
+} from '@material-ui/icons';
 
 function Sidebar() {
   return (
@@ -19,7 +30,17 @@ function Sidebar() {
         <CreateIcon />
       </div>
       <SidebarOption Icon={InsertCommentIcon} title="Threads" />
-      <SidebarOption Icon={null} title="Youtube" />
+      <SidebarOption Icon={Inbox} title="Mentions & reactions" />
+      <SidebarOption Icon={Drafts} title="Saved Items" />
+      <SidebarOption Icon={BookmarkBorder} title="Channel Browser" />
+      <SidebarOption Icon={PeopleAlt} title="People & user groups" />
+      <SidebarOption Icon={Apps} title="Apps" />
+      <SidebarOption Icon={FileCopy} title="File browser" />
+      <SidebarOption Icon={ExpandLess} title="Show Less" />
+      <hr />
+      <SidebarOption Icon={ExpandMore} title="Channels" />
+      <hr />
+      <SidebarOption Icon={Add} title="Add Channel" />
     </div>
   );
 }
