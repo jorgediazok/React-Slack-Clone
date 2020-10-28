@@ -6,6 +6,7 @@ import Message from '../components/Message';
 import '../styles/Chat.css';
 
 function Chat() {
+  // @ts-ignore
   const { roomId } = useParams();
   const [roomDetails, setRoomDetails] = useState(null);
   const [roomMessages, setRoomMessages] = useState([]);
