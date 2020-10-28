@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import CreateIcon from '@material-ui/icons/Create';
 import InsertCommentIcon from '@material-ui/icons/InsertComment';
 import SidebarOption from '../components/SidebarOption';
+import db from '../firebase';
 import '../styles/Sidebar.css';
 import {
   BookmarkBorder,
@@ -17,6 +18,19 @@ import {
 } from '@material-ui/icons';
 
 function Sidebar() {
+  const [channels, setChannels] = useState([]);
+
+  useEffect(() => {
+    db.collection('rooms').onSnapshot((snapshot) =>
+      setChannels(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          name: doc.data().name,
+        }))
+      )
+    );
+  }, []);
+
   return (
     <div className="sidebar">
       <div className="sidebar__header">
@@ -41,6 +55,10 @@ function Sidebar() {
       <SidebarOption Icon={ExpandMore} title="Channels" />
       <hr />
       <SidebarOption Icon={Add} title="Add Channel" />
+
+      {channels.map((channel) => (
+        <SidebarOption id={channel.id} title={channel.name} />
+      ))}
     </div>
   );
 }
