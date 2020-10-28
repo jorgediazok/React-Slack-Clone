@@ -1,10 +1,11 @@
 import React from 'react';
 import '../styles/SidebarOption.css';
 
-function SidebarOption() {
+function SidebarOption({ Icon, title }) {
   return (
     <div className="sidebarOption">
-      <h1>Option</h1>
+      {Icon && <Icon className="sidebarOption__icon" />}
+      {Icon ? <h3>{title}</h3> : <h3># {title}</h3>}
     </div>
   );
 }
