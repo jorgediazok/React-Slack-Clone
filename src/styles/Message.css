@@ -13,10 +13,12 @@
 
 .message__info {
   padding-left: 10px;
+  margin-left: 10px;
 }
 
 .message__timestamp {
   color: gray;
   font-weight: 300;
+  margin-left: 10px;
   font-size: 13px;
 }
