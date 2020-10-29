@@ -5,6 +5,8 @@ import CreateIcon from '@material-ui/icons/Create';
 import InsertCommentIcon from '@material-ui/icons/InsertComment';
 import SidebarOption from '../components/SidebarOption';
 import db from '../firebase';
+import { useStateValue } from '../context/StateProvider';
+
 import '../styles/Sidebar.css';
 import {
   BookmarkBorder,
@@ -19,6 +21,7 @@ import {
 } from '@material-ui/icons';
 
 function Sidebar() {
+  const [{ user }] = useStateValue();
   const [channels, setChannels] = useState([]);
 
   useEffect(() => {
@@ -39,7 +42,7 @@ function Sidebar() {
           <h2>Jorge Dev</h2>
           <h3>
             <FiberManualRecordIcon />
-            Jorge Díaz
+            {user?.displayName}
           </h3>
         </div>
         <CreateIcon />
