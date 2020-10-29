@@ -7,7 +7,6 @@ import ChatInput from '../components/ChatInput';
 import '../styles/Chat.css';
 
 function Chat() {
-  // @ts-ignore
   const { roomId } = useParams();
   const [roomDetails, setRoomDetails] = useState(null);
   const [roomMessages, setRoomMessages] = useState([]);
@@ -53,7 +52,7 @@ function Chat() {
           />
         ))}
       </div>
-      <ChatInput channelName={roomDetails?.name} channelId />
+      <ChatInput channelName={roomDetails?.name} channelId={roomId} />
     </div>
   );
 }

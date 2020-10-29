@@ -21,8 +21,8 @@ import {
 } from '@material-ui/icons';
 
 function Sidebar() {
-  const [{ user }] = useStateValue();
   const [channels, setChannels] = useState([]);
+  const [{ user }] = useStateValue();
 
   useEffect(() => {
     db.collection('rooms').onSnapshot((snapshot) =>
@@ -39,7 +39,7 @@ function Sidebar() {
     <div className="sidebar">
       <div className="sidebar__header">
         <div className="sidebar__info">
-          <h2>Jorge Dev</h2>
+          <h2>{user?.displayName}</h2>
           <h3>
             <FiberManualRecordIcon />
             {user?.displayName}
@@ -61,7 +61,7 @@ function Sidebar() {
       <SidebarOption Icon={Add} addChannelOption title="Add Channel" />
 
       {channels.map((channel) => (
-        <SidebarOption key={channel.id} id={channel.id} title={channel.name} />
+        <SidebarOption id={channel.id} title={channel.name} />
       ))}
     </div>
   );
